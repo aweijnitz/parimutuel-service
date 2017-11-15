@@ -21,14 +21,10 @@ describe('Parimutuel', function () {
                 80.0];
             let outcome = 3; // The winning participant is the 4th one
             let commissonRate = 14.25; // 14.25% commission as take for the organiser/house
+
             let payoutPerDollar = parimutuel.totalize(pool, outcome, commissonRate);
 
-            let oddsDec = payoutPerDollar.toFixed(2);
-            let oddsFractional = odds.decimal.toFractional((oddsDec*1.0).toFixed(0)).simplify().toString();
-
-            assert.equal(oddsDec, 8.01, "oddsDec 8.01");
-            assert.equal(oddsFractional, "(7/1)", "oddsDec 7-1");
-            assert.equal(payoutPerDollar.toFixed(2), 8.01, "Payout Per Dollar");
+            assert.equal(payoutPerDollar.toFixed(2), 8.01, "Payout Per Dollar should be 8.01");
         });
 
         it('Test calculate odds in pool', function () {
@@ -50,8 +46,8 @@ describe('Parimutuel', function () {
             let poolOdds = parimutuel.calculateOdds(pool, commissonRate);
 
             assert.equal(poolOdds.oddsDec.length, 8, "Eight odds in pool expected. " + poolOdds);
-            assert.equal(poolOdds.oddsDec[outcome], 8.01, "odds at 4th should be 8.01. Is ");
-            assert.equal(poolOdds.oddsFractional[outcome], "(7/1)", "oddsDec 7-1");
+            assert.equal(poolOdds.oddsDec[outcome], 8.01, "odds at 4th should be 8.01.");
+            assert.equal(poolOdds.oddsFractional[outcome], "(7/1)", "odds in fractional should be 7 to 1");
         });
 
     });
