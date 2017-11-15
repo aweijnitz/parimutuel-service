@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "./node_modules/mocha/bin/mocha ./tests/*js"
   },
   "dependencies": {
     "@risingstack/protect": "^1.2.0",
@@ -19,5 +20,8 @@
     "odds": "^0.1.4",
     "odds-converter": "^1.0.4",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
   }
 }
